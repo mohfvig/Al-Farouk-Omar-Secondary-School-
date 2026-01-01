@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>غععع</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* تنسيقات إضافية لضمان التناسق */
+    .full-news-body { 
+        text-align: right; 
+        line-height: 1.8; 
+        white-space: pre-wrap; 
+        word-wrap: break-word; 
+        overflow-wrap: break-word; 
+        margin-top: 20px;
+        max-width: 100%;
+        color: inherit; /* ليتغير اللون مع الوضع الليلي */
+    }
+    .hero-section { 
+        height: auto !important; 
+        min-height: 400px; 
+        padding: 25px; 
+        box-sizing: border-box; /* لمنع خروج المحتوى عن الكارت */
+    }
+    /* تأكيد تغيير ألوان النص في الوضع الليلي للمحتوى */
+    body.dark-mode .full-news-body, 
+    body.dark-mode .hero-section h2, 
+    body.dark-mode .meta {
+        color: #ffffff !important;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap brand">
+      <div class="title">
+        <div class="logo">📚</div>
+        <div><h1>مدرسة الفاروق عمر الثانوية العسكرية بنين</h1></div>
+        <img src="../icon.jpg" alt="شعار المدرسة" id="main-logo"> 
+      </div>
+      <div class="header-actions">
+        <button id="dark-mode-toggle" class="btn btn-icon" aria-label="تبديل الوضع الليلي">🌙</button>
+        <button id="menu-toggle" class="btn btn-icon menu-toggle" aria-label="فتح القائمة">☰</button>
+      </div>
+    </div>
+    <div id="nav-wrapper">
+      <nav class="wrap nav-menu">
+        <ul>
+          <li><a href="../index.html" class="nav-link">الصفحه الرئيسية</a></li>
+          <li><a href="../news.html" class="nav-link active">الأخبار والفعاليات</a></li>
+          <li><a href="../test.html#test" class="nav-link">جداول الامتحانات</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="card hero-section">
+      <h2>غععع</h2>
+      <p class="meta" style="margin-bottom: 20px;">نشر في: January 2026 </p>
+      <div class="full-news-body">٥٢٧٢٨٣٩٣٨٤٧٤٧٦٤٧٣٦٤غفتقننقتقتبتبتللتفنف</div>
+      <div style="margin-top: 30px;">
+        <a href="../news.html" class="btn btn-muted">← العودة إلى جميع الأخبار</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+ © جميع الحقوق محفوظة لعام 2025 — مدرسة الفاروق عمر الثانوية العسكرية بنين
+  </footer>
+  
+  <script>
+    const toggleButton = document.getElementById('dark-mode-toggle');
+    const body = document.body; 
+
+    // منطق الوضع الليلي
+    if (localStorage.getItem('theme') === 'dark') {
+      body.classList.add('dark-mode');
+      toggleButton.textContent = '☀️';
+    }
+
+    toggleButton.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      if (body.classList.contains('dark-mode')) {
+        localStorage.setItem('theme', 'dark');
+        toggleButton.textContent = '☀️';
+      } else {
+        localStorage.setItem('theme', 'light');
+        toggleButton.textContent = '🌙';
+      }
+    });
+
+    // منطق القائمة (الهامبرغر)
+    const menuToggle = document.getElementById('menu-toggle');
+    const navWrapper = document.getElementById('nav-wrapper');
+    if (menuToggle && navWrapper) {
+      menuToggle.addEventListener('click', () => {
+        navWrapper.classList.toggle('menu-open');
+        menuToggle.textContent = navWrapper.classList.contains('menu-open') ? '✕' : '☰';
+      });
+    }
+  </script>
+</body>
+</html>
